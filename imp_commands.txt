@@ -1,0 +1,150 @@
+  export PATH=`brew --prefix icu4c`/bin:$PATH
+  243  ssh root@10.3.3.61
+  245  cd /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/bin/
+  248  ./cbstats localhost:12000 all | grep curr
+  249  ./cbstats
+  250  ./cbstats localhost:12001 all | grep curr
+  251  ./cbstats localhost:12000 all | grep curr
+  252  ./cbstats localhost:12000 allocator | grep curr
+  253  ./cbstats localhost:12000 allocator
+  255  cd /Applications/Couchbase\ Server.app/
+  256  ls
+  257  cd Contents/
+  258  ls
+  259  cd Resources/
+  260  ls
+  261  ./start-server.sh --help
+  262  ./start-server.sh -h
+  264  couchbase-core/
+  265  ls
+  266  cd couchbase-core/
+  268  cd bin/
+  270  ./couchbase-server stop
+  274  cd etc
+  275  ls
+  276  cd default/
+  277  ls
+  278  cd ..
+  279  ls
+  280  cd couchbase/
+  288  ps -ef|grep couchbase
+  289  kill -9 6098
+  290  kill -9 6074
+  291  kill -9 6057
+  292  ps -ef|grep couchbase
+  293  kill -9 30520
+  294  ps -ef|grep couchbase
+  327  export PATH=`brew --prefix icu4c`/bin:$PATH
+  338  ./cluster_run 
+  339  ./cluster_run -n4
+  340  ./cluster_run -n4
+  341  make dataclean
+  342  cd ..
+  343  cd ep-engine/
+  344  make test
+  345  cd ..
+  346  cd ep-engine/
+  347  ls
+  348  cd tests/
+  349  ls
+  350  pwd
+  358  make simple-test
+  360  cd ..
+  361  cd ..
+  362  cd couchbase/
+  363  cd ep-engine/
+  364  git grep fragmentation_bytes
+  453  ssh -l ubuntu -i ~/.ssh/sundar-cbs.pem ec2-54-213-17-236.us-west-2.compute.amazonaws.com
+  468  chmod 400 ~/.ssh/sundar-cbs.pem 
+  503  git fetch
+  504  git remote update
+  505  git branch -a
+  506  git branch current --track private/2.1.1
+  507  git checkout current
+  508  git stash
+  509  git branch
+  510  git fetch
+  511  git remote update
+  512  git remote add gerrit ssh://sundar@review.couchbase.org:29418/ep-engine
+  513  git remote update
+  514  git pull private 2.1.1
+  515  git branch -a
+  516  pwd
+  517  cd src
+  518  vim ep.cc 
+  519  vi dispatcher.cc 
+  520  git commit -a
+  521  git push private current
+  522  git remote rm private
+  523  git remote add private http://github.com/hisundar/ep-engine.git
+  524  git push private current
+  528  ls
+  529  pwd
+  530  cd ..
+  531  cd .repo/
+  532  cd repo/
+  533  ls
+  534  cd ..
+  535  ls
+  536  cd manifests
+  537  ls
+  538  cd toy/
+  539  ls
+  540  vim toy-farshid.xml 
+  541  vim toy-farshid.xml 
+  542  git remote add gerrit ssh://sundar@review.couchbase.org:29418/manifest.git
+  543  git commit -a
+  544  git push gerrit HEAD:refs/for/master
+  545  git remote rm gerrit 
+  546  git remote add gerrit ssh://sundar@review.couchbase.org:29418/manifest.git
+  547  git remote rm gerrit 
+  548  git remote add gerrit ssh://sundar@review.couchbase.org:29418/manifests.git
+  549  git push gerrit HEAD:refs/for/master
+  550  git remote rm gerrit 
+  551  git remote add gerrit ssh://sundar@review.couchbase.org:29418/manifest.git
+  552  pwd
+  553  git user
+  554  git push gerrit HEAD:refs/for/master --verbose
+  555  which ssh
+  556  cat ~/.ssh/id_rsa.pub 
+  557  git push gerrit HEAD:refs/for/master --verbose
+  558  pwd
+  563  ls .git/hooks/*
+  564  cp /Users/sundar/Downloads/commit-msg .git/hooks/
+  565  ls -lrt .git/hooks/commit-msg 
+  566  git push gerrit HEAD:refs/for/master --verbose
+  661  cp ~/Downloads/commit-msg hooks/commit-msg 
+  662  cd -
+  663  git push gerrit HEAD:refs/for/master --verbose
+  664  vi .git/config 
+  665  git config --global user.email "sundar.sridharan@gmail.com"
+  671  git commit --amend --author "Sundar Sridharan <sundar.sridharan@gmail.com>"
+  672  git show
+  685  git remote add gerrit ssh://sundar@review.couchbase.org:29418/manifest.git
+  686  git push gerrit HEAD:refs/for/master --verbose
+  687  vi .git/config 
+  688  git config --global user.email "sundar.sridharan@gmail.com"
+git status
+git stash
+git status
+git clean -dfx
+git status
+git stash pop
+git add .
+git status
+git commit -m "wip"
+cd ..
+cd -
+git checkout gerrit/master -b temp
+git branch
+cd ..
+repo sync
+pwd
+ls
+repo init -u git://github.com/couchbase/manifest.git -m rel-2.2.0.xml
+repo sync
+cd ep-engine/
+git log
+git log ep211
+git cherry-pick 9aaccb5a320fec95e056180613465d64fe3d557b
+git status

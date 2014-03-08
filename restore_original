@@ -1,0 +1,1 @@
+cd ~ && mv couchbase couchbaseln && mv couchbase_bk couchbase

@@ -1,0 +1,6 @@
+DISK=`hdiutil attach -nomount ram://2097152`
+echo $DISK
+sudo /sbin/newfs_msdos -v ramdisk1g $DISK
+rm /tmp/ramdisk2g/couchbase_bk/ns_server/data/
+mkdir -p /tmp/ramdisk2g/couchbase_bk/ns_server/data/
+sudo /sbin/mount -t msdos -o sync -o noasync $DISK /tmp/ramdisk2g/couchbase_bk/ns_server/data/

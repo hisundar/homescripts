@@ -1,0 +1,5 @@
+DISK=`hdiutil attach -nomount ram://4194304`
+echo $DISK
+sudo /sbin/newfs_hfs -v ramdisk2G $DISK
+mkdir -p /tmp/ramdisk2g
+sudo /sbin/mount -t hfs -o union $DISK /tmp/ramdisk2g/

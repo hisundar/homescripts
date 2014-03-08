@@ -1,0 +1,1 @@
+cd ~ && mv couchbase couchbase_bk && mv couchbaseln couchbase && cp -rf couchbase_bk /tmp/ramdisk2g/
