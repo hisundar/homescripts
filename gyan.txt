@@ -1,0 +1,3 @@
+If a single threaded program crashes intermittently then first check for 
+an uninitialized variable!
+
