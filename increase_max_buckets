@@ -1,0 +1,1 @@
+curl -v -XPOST http://Administrator:asdasd@127.0.0.1:9000/internalSettings -d "maxBucketCount=120"

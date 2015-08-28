@@ -1,0 +1,16 @@
+/Users/sundar/couchbase/install/bin/couchbase-cli node-init -c 127.0.0.1:9000 --node-init-data-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_0/data --node-init-index-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_0/data --node-init-hostname=127.0.0.1 -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli cluster-init -c 127.0.0.1:9000  -u Administrator -p asdasd --cluster-ramsize=300
+/Users/sundar/couchbase/install/bin/couchbase-cli server-add -c 127.0.0.1:9000 --server-add=127.0.0.1:9001 --server-add-username=Administrator --server-add-password=asdasd -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli rebalance -c 127.0.0.1:9000 -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli bucket-create -c 127.0.0.1:9000 --bucket=default --bucket-type=couchbase --bucket-ramsize=100 --bucket-replica=1 --bucket-priority=low --wait -u Administrator -p asdasd
+
+
+/Users/sundar/couchbase/install/bin/couchbase-cli node-init -c 127.0.0.1:9002 --node-init-data-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_2/data --node-init-index-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_2/data --node-init-hostname=127.0.0.1 -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli cluster-init -c 127.0.0.1:9002  -u Administrator -p asdasd --cluster-ramsize=300
+/Users/sundar/couchbase/install/bin/couchbase-cli server-add -c 127.0.0.1:9002 --server-add=127.0.0.1:9003 --server-add-username=Administrator --server-add-password=asdasd -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli rebalance -c 127.0.0.1:9002 -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli bucket-create -c 127.0.0.1:9002 --bucket=default --bucket-type=couchbase --bucket-ramsize=100 --bucket-replica=1 --bucket-priority=low --wait -u Administrator -p asdasd
+
+
+/Users/sundar/couchbase/install/bin/couchbase-cli xdcr-setup -c 127.0.0.1:9000 --create  --xdcr-cluster-name=testxdcr --xdcr-hostname=127.0.0.1:9002 --xdcr-username=Administrator --xdcr-password=asdasd -u Administrator -p asdasd
+/Users/sundar/couchbase/install/bin/couchbase-cli xdcr-replicate -c 127.0.0.1:9000 --create  --xdcr-cluster-name=testxdcr --xdcr-from-bucket=default --xdcr-to-bucket=default -u Administrator -p asdasd
