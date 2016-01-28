@@ -1,4 +1,4 @@
-inline void gdb_loop() {
+void __attribute__ ((noinline)) gdb_loop() {
     fprintf(stdout, "gdb --pid=%d\n", getpid());
     while(1);
 }

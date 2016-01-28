@@ -1,0 +1,1 @@
+cat good.log | grep "SnapCreateDur" | awk 'BEGIN {sum=0; count=0;} {lin = $22; count++; idx=match(lin, /[µsm]/); unit=substr(lin, idx, length(lin)); val=substr(lin, 0, idx-1); if (unit == "s") sum+=val*1000000; if (unit == "µs") sum+=val; if (unit == "ms") sum+=val*1000;} END {print sum/count}'
