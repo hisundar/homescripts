@@ -1,0 +1,5 @@
+https://github.com/couchbase/couchbase-lite-ios/wiki/Building-Couchbase-Lite
+https://github.com/couchbase/couchbase-lite-ios/wiki/Running-Tests
+The failing test is in View_Tests.m, method -test23_ViewWithDocDeletion. In Xcode you can open it in the editor and click the diamond in the left margin next to the first line of the method, and it'll run just that one test.
+To reproduce the problem, you'll have to modify ForestDB (or CBForest's Database.cc) to always use the manual-WAL commit mode.
+If you have any problems, you can ask me via Slack, or Skype (I'm 'mooseyard')

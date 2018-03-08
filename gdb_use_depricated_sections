@@ -1,0 +1,1 @@
+gdb -iex "set use-deprecated-index-sections on" /opt/couchbase/bin/cbft core.fts

@@ -1,0 +1,15 @@
+-- Installing Golang version 1.6 in cache...
+-- Added Go build target 'indexer' using Go 1.6
+-- Added Go build target 'projector' using Go 1.6
+-- Added Go build target 'cbindex' using Go 1.6
+-- Added Go build target 'cbindexperf' using Go 1.4.2
+-- Added Go build target 'goxdcr' using Go 1.5.2
+-- Added Go build target 'gometa' using Go 1.5.2
+-- Added Go build target 'saslauthd-port' using Go 1.5.2
+-- Added Go build target 'cbft' using Go 1.6
+-- Added Go build target 'cbft-bleve-dump' using Go 1.6
+-- Added Go build target 'cbft-bleve-check' using Go 1.6
+-- Added Go build target 'cbft-bleve-query' using Go 1.6
+-- Added Go build target 'cbgt-ctl' using Go 1.6
+-- Configuring done
+

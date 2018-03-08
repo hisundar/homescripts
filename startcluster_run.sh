@@ -7,14 +7,14 @@ pkill cbq
 pkill cbq_engine
 pkill gometa
 ps -ef | grep erl | grep -v grep | awk '{print $2}' | xargs kill
-rm -rf /root/work/sherlock/ns_server/data/
-rm -rf /root/work/sherlock/ns_server/logs/
-rm -rf /root/work/sherlock/ns_server/meta
-rm -rf /root/work/sherlock/ns_server/MetadataStore
-
+rm -rf data/
+rm -rf logs/
+rm -rf meta
+rm -rf MetadataStore
 
 # Core dumps
 export GOTRACEBACK=crash
+export CBFT_ENV_OPTIONS=bleveMaxResultWindow=10000000
 ulimit -c unlimited
 sudo bash -c "echo /tmp/core-%e.%p > /proc/sys/kernel/core_pattern"
 

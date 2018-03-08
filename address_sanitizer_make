@@ -1,0 +1,7 @@
+rm -rf build
+mkdir build
+make clean-xfd-hard
+cd build
+CC=clang CXX=clang++ CMAKE_ARGS=-DCOUCHBASE_KV_COMMIT_VALIDATION=1  cmake -G "Unix Makefiles" -D PRODUCT_VERSION= -D BUILD_ENTERPRISE= -DCOUCHBASE_KV_COMMIT_VALIDATION=1 -DCB_ADDRESSSANITIZER=ON -D ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer ..
+make all install
+# Change vim ASAN_SYMBOLIZER_PATH in tests/functional/CTestTestfile.cmake to ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer

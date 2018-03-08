@@ -1,3 +1,14 @@
 If a single threaded program crashes intermittently then first check for 
 an uninitialized variable!
 
+32 depth  16 jobs direct io with async
+128k block 2-8 jobs queue 32 
+
+fio - async direct i/o - 16 jobs
+840K for 4K random i/O
+1200MB/s for 128K sequential write   sata
+4k randome read           1000k  840k           
+4k random write           120k   120k
+128k sequential read      5500mb/s  3300mb/s   550mb/s
+128kb sequenttial write   1800mb/s  1900mb/s
+

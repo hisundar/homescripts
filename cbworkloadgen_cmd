@@ -1,0 +1,1 @@
+~/couchbase/install/bin/cbworkloadgen -n 127.0.0.1:9000 -u Administrator -p asdasd -l -i 20000 -s 3200 -r .6 -b default

@@ -1,0 +1,2 @@
+http://hub.internal.couchbase.com/confluence/display/supp/Downloading+Customer+Logs+Securely
+s3://cb-customers-secure/staples-inventoryservicenewissue/litmpndbv01_2016-12-20-12-47-24.zip

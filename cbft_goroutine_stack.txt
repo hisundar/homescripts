@@ -1,0 +1,1 @@
+curl http://Administrator:password@127.0.0.1:8094/api/diag

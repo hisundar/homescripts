@@ -1,0 +1,76 @@
+    1  vi /etc/ssh/sshd_config 
+    2  mkdir /cdrom
+    3  mount /dev/cdrom /cdrom/
+    4  cd /cdrom/
+    5  ls
+    6  cd
+    7  ls
+    8  mount /dev/cdrom /cdrom/
+    9  cd /cdrom/
+   10  ls
+   11  cd Linux/
+   12  ls
+   13  ./install.sh 
+   14  reboot
+   15  exit
+   16  ifconfig
+   17  vi /etc/udev/udev.conf 
+   18  ls /etc/udev/rules.d/
+   19  cd
+   20  vi /etc/network/interfaces
+   21  vi /etc/ssh/sshd_config 
+   22  service sshd restart
+   23  service sshd stop
+   24  service sshd start
+   25  shutdown -h now
+   26  apt-get update
+   27  ping 8.8.8.8
+   28  apt-get install git
+   29  rm /var/lib/apt/lists/lock
+   30  rm /var/cache/apt/archives/lock 
+   31  apt-get install git
+   32  apt-get install atop
+   33  apt-get install htop
+   34  apr-get groupinstall Development Tools
+   35  apt-get groupinstall 'Development Tools'
+   36  apt-get install build-essentials
+   37  apt-get install build-essential
+   38  ip addr 
+   39  apt-get update
+   40  reboot
+   41  apt-get updat-y
+   42  apt-get update -y
+   43  apt-get upgrade -y
+   44  reboot
+   45  apt-get i
+   46  apt-get update
+   47  shutdown -h now
+   48  uptime
+   49  exit
+--------------------------------------------------------------------------
+   50  apt-get install graphviz
+   51  apt-get autoremove
+   52  apt-get install cmake
+   53  free -g
+   54  apt-get install python
+   55  mkdir sundar
+   56  cd sundar/
+   57  mkdir couchbase
+   58  cd couchbase/
+   59  repo init -u git://github.com/couchbase/manifest.git -m branch-master.xml
+   60  curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+   61  chmod u+x /usr/local/bin/repo 
+   62  repo init -u git://github.com/couchbase/manifest.git -m branch-master.xml
+   63  git config --global user.name "Sundar Sridharan"
+   64  git config --global user.email "sundar.sridharan@gmail.com"
+   65  repo init -u git://github.com/couchbase/manifest.git -m branch-master.xml
+   66  repo sync -j 12
+   67  apt-get install libssl-dev
+   68  make -j 12
+   69  echo $?
+   70  ln -n /root/.cbdepscache/exploded/x86_64/go-1.8.1/go/bin/gofmt /usr/local/bin/gofmt
+   71  ln -n /root/.cbdepscache/exploded/x86_64/go-1.8.1/go/bin/go /usr/local/bin/go
+   72  export GOROOT=/root/.cbdepscache/exploded/x86_64/go-1.8.1/go && export GOPATH=/root/sundar/couchbase/godeps:/root/sundar/couchbase/goproj && export PATH=$PATH:/root/sundar/couchbase/godeps/bin
+   74  mkdir -p /root/.vim/pack/plugins/start
+   75  cd /root/.vim/pack/plugins/start/
+   76  git clone https://github.com/fatih/vim-go.git

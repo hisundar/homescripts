@@ -1,0 +1,5 @@
+cd godeps/src/github.com/couchbase/
+git clone https://github.com/couchbase/cbq-gui
+cd -
+cd goproj/src/github.com/couchbase/
+git clone https://github.com/couchbase/backup
