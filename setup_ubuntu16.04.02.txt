@@ -74,3 +74,5 @@
    74  mkdir -p /root/.vim/pack/plugins/start
    75  cd /root/.vim/pack/plugins/start/
    76  git clone https://github.com/fatih/vim-go.git
+   apt-get install default-jre
+   apt-get install default-jdk

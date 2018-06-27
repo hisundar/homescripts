@@ -16,6 +16,7 @@ rm -rf MetadataStore
 export GOTRACEBACK=crash
 export CBFT_ENV_OPTIONS=bleveMaxResultWindow=10000000
 ulimit -c unlimited
+ulimit -n 65535
 sudo bash -c "echo /tmp/core-%e.%p > /proc/sys/kernel/core_pattern"
 
 make dataclean

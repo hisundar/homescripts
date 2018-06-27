@@ -1,0 +1,6 @@
+yum install devtoolset-7
+yum install devtoolset-7-gcc-c++
+download and install cmake
+curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+yum install redhat-lsb-core
+yum install openssl-devel

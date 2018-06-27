@@ -1,0 +1,5 @@
+external fragmentation:
+1.0 - allocated/active = 1.0 - 0.99995010299043907 ~ less than 1% (pretty low)
+Virtual memory fragmentation
+1.0 - active/mapped = 1.0 - 0.9744823424796748 ~ 2.5% (pretty low as well)
+So most of the use is from user data which is probably within the sizing estimates.

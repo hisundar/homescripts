@@ -1,5 +1,98 @@
-cd godeps/src/github.com/couchbase/
-git clone https://github.com/couchbase/cbq-gui
-cd -
-cd goproj/src/github.com/couchbase/
-git clone https://github.com/couchbase/backup
+#!/bin/bash
+ncpus=`nproc`
+CWD=`pwd`
+export BUILD_ENTERPRISE=TRUE
+set -x
+# JUST DO THIS FOR ENTERPRISE MODE
+# Make sure gcc is at
+# http://latestbuilds.service.couchbase.com/builds/latestbuilds/gcc/
+# centos-7-gcc-7.3.0.tar.gz
+# repo init --config-name -u git://github.com/couchbase/manifest.git -m branch-master.xml -g all
+# GO TO tlm/CMakeLists.txt and comment out ADD_SUBDIRECTORY(analytics)
+# OR
+# make EXTRA_CMAKE_OPTIONS=-DCB_DOWNLOAD_JAVA=true
+# refer
+# https://hub.internal.couchbase.com/confluence/pages/viewpage.action?pageId=23924359
+
+expect -c '
+spawn repo init --config-name -u git://github.com/couchbase/manifest.git -m toy/toy-sundar2.xml
+match_max 100000
+expect "Your Name*"
+send -- "Scott Lashley\r"
+expect "Your Email*"
+send -- "scott.lashley@couchbase.com\r"
+expect "is this correct*" 
+send -- "y\r"
+expect eof
+'
+repo sync -j ${ncpus}
+cd $CWD/godeps/src/github.com/couchbase/
+expect -c '
+spawn git clone https://github.com/couchbase/cbq-gui.git
+match_max 100000
+expect "Username for*"
+send -- "scottlashley\r"
+expect "Password for*"
+send -- "hR6V70dOvBUJ6Uqk\r"
+expect eof
+'
+git checkout -b plasma dd5347302451ca4669a81fdaa243656561ae628c
+cd $CWD/goproj/src/github.com/couchbase/
+expect -c '
+spawn git clone https://github.com/couchbase/backup.git
+match_max 100000
+expect "Username for*"
+send -- "scottlashley\r"
+expect "Password for*"
+send -- "hR6V70dOvBUJ6Uqk\r"
+expect eof
+'
+cd $CWD/goproj/src/github.com/couchbase/
+expect -c '
+spawn git clone https://github.com/couchbase/eventing.git
+match_max 100000
+expect "Username for*"
+send -- "scottlashley\r"
+expect "Password for*"
+send -- "hR6V70dOvBUJ6Uqk\r"
+expect eof
+'
+cd $CWD
+git clone git://github.com/couchbase/libcouchbase.git
+
+cd $CWD/goproj/src/github.com/couchbase
+# git clone https://github.com/couchbase/plasma.git
+expect -c '
+spawn git clone https://github.com/couchbaselabs/plasma.git
+match_max 100000
+expect "Username for*"
+send -- "scottlashley\r"
+expect "Password for*"
+send -- "hR6V70dOvBUJ6Uqk\r"
+expect eof
+'
+cd $CWD/kv_engine/engines/ep/src
+git remote add kv ssh://git@github.com/hisundar/kv_engine/engines/ep/src/plasma-kvstore
+cd $CWD/goproj/src/github.com/couchbase/plasma
+git remote add cb ssh://git@github.com/couchbaselabs/plasma
+git fetch cb
+git checkout -b kvengine --track cb/kvexp
+cd $CWD
+mkdir build
+cd ./build
+cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo -D BUILD_ENTERPRISE=TRUE -D CB_DEVELOPER_BUILD=True -D CB_PRODUCTION_BUILD=True ..
+cd ..
+make -j ${ncpus}
+
+cat > $CWD/plasma.env << _eof
+export GOPATH=$CWD/godeps:$CWD/goproj
+export GOROOT=$HOME/.cbdepscache/exploded/x86_64/go-1.7.3/go
+export CGO_CFLAGS="-D JEMALLOC -I$CWD/build/tlm/deps/jemalloc.exploded/include -I$CWD/sigar/include/"
+export CGO_LDFLAGS="-L$CWD/build/tlm/deps/jemalloc.exploded/lib -ljemalloc -L$CWD/install/lib -lsigar"
+export LD_LIBRARY_PATH=".:$CWD/build/tlm/deps/jemalloc.exploded/lib:$CWD/install/lib"
+alias cdp='cd $CWD/goproj/src/github.com/couchbase/plasma'
+alias go-lint='gometalinter --vendor --disable-all --enable=vet --enable=vetshadow --enable=golint --enable=ineffassign --enable=misspell --enable=gofmt --tests'
+set -o vi
+export PROMPT_DIRTRIM=2
+${myprompt}
+_eof
