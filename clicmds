@@ -1,3 +1,6 @@
+4369, 8091 to 8094, 9100 to 9105, 9998, 9999, 11207, 11209 to 11211,
+11214, 11215, 18091 to 18093, and from 21100 to 21299
+
 /Users/sundar/couchbase/install/bin/couchbase-cli node-init -c 127.0.0.1:9000 --node-init-data-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_0/data --node-init-index-path=/private/tmp/ramdisk2g/couchbase_bk/ns_server/data/n_0/data --node-init-hostname=127.0.0.1 -u Administrator -p asdasd
 /Users/sundar/couchbase/install/bin/couchbase-cli cluster-init -c 127.0.0.1:9000  -u Administrator -p asdasd --cluster-ramsize=300
 /Users/sundar/couchbase/install/bin/couchbase-cli server-add -c 127.0.0.1:9000 --server-add=127.0.0.1:9001 --server-add-username=Administrator --server-add-password=asdasd -u Administrator -p asdasd

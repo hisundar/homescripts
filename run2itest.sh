@@ -14,7 +14,7 @@ ulimit -n 65535
 export STORAGE=plasma
 export WORKSPACE=.
 export GOPATH=$ROOTDIR/godeps:$ROOTDIR/goproj
-export GOROOT=~/.cbdepscache/exploded/x86_64/go-1.9.3/go/
+export GOROOT=~/.cbdepscache/exploded/x86_64/go-1.9.6/go/
 export CBAUTH_REVRPC_URL="http://Administrator:asdasd@127.0.0.1:9000/query"
 export CGO_CFLAGS="-I$ROOTDIR/forestdb/include -I$ROOTDIR/sigar/include -I$ROOTDIR/build/tlm/deps/curl.exploded/include"
 export CGO_LDFLAGS="-L $ROOTDIR/install/lib"

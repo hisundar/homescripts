@@ -1,6 +1,7 @@
-yum install devtoolset-7
-yum install devtoolset-7-gcc-c++
-download and install cmake
+curl http://latestbuilds.service.couchbase.com/builds/latestbuilds/gcc/YOUR_OS-gcc-7.3.0.tar.gz | sudo tar xz -C /usr -f -
+(echo "/usr/local/lib64"; cat /etc/ld.so.conf) > /tmp/ld.so.conf && sudo mv /tmp/ld.so.conf /etc && sudo ldconfig
+wget https://cmake.org/files/v3.12/cmake-3.12.3-Linux-x86_64.sh
+sh cmake-3.12.3-Linux-x86_64.sh (install to /usr/local/)
 curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
-yum install redhat-lsb-core
-yum install openssl-devel
+chmod u+x /usr/local/bin/repo
+yum install git redhat-lsb-core openssl-devel

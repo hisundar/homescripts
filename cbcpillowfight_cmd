@@ -1,1 +1,1 @@
-cbc-pillowfight -U http://127.0.0.1:9000 --username Administrator --password password -Dselect_bucket=true
+./install/bin/cbc-pillowfight -U couchbase://127.0.0.1:12000/default -u Administrator -P asdasd -I 150000 -J -t 4 -v

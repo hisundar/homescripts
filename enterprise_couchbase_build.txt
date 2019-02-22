@@ -4,13 +4,15 @@ CWD=`pwd`
 export BUILD_ENTERPRISE=TRUE
 set -x
 # JUST DO THIS FOR ENTERPRISE MODE
+# install lz4-devel lz4 for rocksdb dependency
 # Make sure gcc is at
 # http://latestbuilds.service.couchbase.com/builds/latestbuilds/gcc/
 # centos-7-gcc-7.3.0.tar.gz
-# repo init --config-name -u git://github.com/couchbase/manifest.git -m branch-master.xml -g all
+# repo init --config-name -u git://github.com/couchbase/manifest.git -m branch-master.xml -g build,kv,kv_ee,enterprise
 # GO TO tlm/CMakeLists.txt and comment out ADD_SUBDIRECTORY(analytics)
 # OR
 # make EXTRA_CMAKE_OPTIONS=-DCB_DOWNLOAD_JAVA=true
+# make EXTRA_CMAKE_OPTIONS=-DEP_USE_ROCKSDB=ON
 # refer
 # https://hub.internal.couchbase.com/confluence/pages/viewpage.action?pageId=23924359
 

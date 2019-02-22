@@ -1,0 +1,5 @@
+ firewall-cmd --permanent --add-port=8091-8094/tcp
+ firewall-cmd --permanent --add-port=4369/tcp
+ firewall-cmd --permanent --add-port=12000/tcp
+ firewall-cmd --reload
+ firewall-cmd --list-ports

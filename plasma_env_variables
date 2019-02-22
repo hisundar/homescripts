@@ -1,0 +1,7 @@
+export GOROOT=/Users/sundar/.cbdepscache/exploded/x86_64/go-1.9.6/go &&
+export GOPATH=/Users/sundar/couchbase/godeps:/Users/sundar/couchbase/goproj  &&
+export PATH=$PATH:/Users/sundar/couchbase/godeps/bin &&
+export CGO_CFLAGS="-I/Users/sundar/couchbase/sigar/include -I/Users/sundar/couchbase/forestdb/include" &&
+export CGO_LDFLAGS="-L /Users/sundar/couchbase/install/lib" &&
+export LD_LIBRARY_PATH=/Users/sundar/couchbase/install/lib &&
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
